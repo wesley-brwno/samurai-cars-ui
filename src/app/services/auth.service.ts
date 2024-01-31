@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { API_URL } from '../utils/utils';
 import { catchError, map } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { ILoggedUser, IUserCredentials } from '../model/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  executeAuthentication(userCredentials: UserCredentials) {
+  executeAuthentication(userCredentials: IUserCredentials) {
     return this.http.post(`${API_URL}/auth/authorize`, 
       {
         email: userCredentials.email,
@@ -20,7 +21,6 @@ export class AuthService {
         map((response: any) => {
           if (response) {
             localStorage.setItem("tokenJwt", response.token);
-            return response;
           }
         }),
         catchError((errorResponse: HttpErrorResponse) =>  {          
@@ -32,7 +32,7 @@ export class AuthService {
       );
   }
 
-  registerUser(newUserInput: RegisterUser) {
+  registerUser(newUserInput: IUserCredentials) {
     return this.http.post(`${API_URL}/auth/register`, newUserInput)
       .pipe(
         map((response: any) => {
@@ -64,19 +64,13 @@ export class AuthService {
   }
 }
 
-export interface UserCredentials {
-  email: string,
-  password: string
-}
+export class LoggedUser implements ILoggedUser {
+  name: string;
+  roles: string[];
 
-export interface RegisterUser {
-  name: string,
-  email: string,
-  password: string
-}
-
-export class LoggedUser {
   constructor(name: string, roles: string[]) {
+    this.name = name;
+    this.roles = roles;
   }
 }
 

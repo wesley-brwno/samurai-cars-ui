@@ -40,7 +40,6 @@ export class LoginComponent implements OnInit{
   }
 
   onSubmitSignUp() {
-
     this.authService.registerUser(this.formRegister.value).subscribe({
       next: () => {
         console.log("Registed"); 
