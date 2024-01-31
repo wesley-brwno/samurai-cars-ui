@@ -49,9 +49,13 @@ export class AuthService {
       );
   }
 
+  logout() {
+    localStorage.removeItem('tokenJwt');
+  }
+
   isUserLogged(): Boolean {
     const token = localStorage.getItem("tokenJwt");
-    return new JwtHelperService().isTokenExpired(token);
+    return !new JwtHelperService().isTokenExpired(token);
   }
 
   getCurrentUser() {
