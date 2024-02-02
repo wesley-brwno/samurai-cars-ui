@@ -1,0 +1,116 @@
+<section class="bg-light py-3 py-md-5 m-1">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="card border border-light-subtle rounded-3 shadow-sm">
+                <div *ngIf="!vehicleResponse then vehicleForm; else photosForm"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<ng-template #vehicleForm>
+    <div class="card-body p-md-1 p-xl-4">
+
+        <h2 class="fs-3 fw-normal text-center">New Vehicle</h2>
+
+        <form [formGroup]="vehicleRequest" (ngSubmit)="onFormSubmit()">
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="name" placeholder="some name"
+                            formControlName="name">
+                        <label for="name" class="form-label">Name</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="model" placeholder="some model"
+                            formControlName="model">
+                        <label for="model" class="form-label">Model</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="brand" placeholder="some-brand"
+                            formControlName="brand" >
+                        <label for="brand" class="form-label">Brand</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="brand" placeholder="name@example.com"
+                            formControlName="vehicle_type">
+                        <label for="brand" class="form-label">Vehicle Type</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <input type="number" id="year" min="1900" max="2099" step="1" value="2024" class="form-control" id="year" placeholder="some-year"
+                            formControlName="year">
+                        <label for="year" class="form-label">Year</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <input type="number" id="price" min="0" step="0.01" class="form-control" id="year" placeholder="some-year"
+                            formControlName="price">
+                        <label for="year" class="form-label">Price</label>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons_container">
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-success" type="submit"
+                        [disabled]="vehicleRequest.invalid">Save</button>
+                </div>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-danger" type="button" (click)="onCancelClick()">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</ng-template>
+
+<ng-template #photosForm>
+    <div class="card-body p-md-1 p-xl-4">
+        <h2 class="fs-3 fw-normal text-center">Vehicle saved, add some photos!</h2>
+
+        <form (ngSubmit)="onPhotosSubmit()">
+            <div class="row mb-4">
+                <div class="mx-auto text-center" style="width: 400px;">
+
+                    <div class="mb-3">
+                        <input class="form-control form-control" id="formFileSm" type="file" accept="image/*"
+                            (change)="onPhotoAdded($event, 0)" >
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control form-control" id="formFileSm" type="file" accept="image/*"
+                            (change)="onPhotoAdded($event, 1)">
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control form-control" id="formFileSm" type="file" accept="image/*"
+                            (change)="onPhotoAdded($event, 2)">
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control form-control" id="formFileSm" type="file" accept="image/*"
+                            (change)="onPhotoAdded($event, 3)">
+                    </div>
+                    <div class="mb-6">
+                        <input class="form-control form-control" id="formFileSm" type="file" accept="image/*"
+                            (change)="onPhotoAdded($event, 4)">
+                    </div>
+                  </div>
+            </div>
+            <div class="d-grid gap-2 col-4 mx-auto">
+                <button class="btn btn-primary" type="submit"
+                    [disabled]="!isAnyImageUploaded()">Save</button>
+              </div>
+        </form>
+    </div>
+</ng-template>
