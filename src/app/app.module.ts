@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminComponent } from './pages/admin/admin.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { AddVehicleComponent } from './pages/add-vehicle/add-vehicle.component';
+import { AuthIntercepterService } from './security/auth.intercepeter';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import { AddVehicleComponent } from './pages/add-vehicle/add-vehicle.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthIntercepterService, multi:true } 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
