@@ -62,17 +62,19 @@ export class AuthService {
     const token = localStorage.getItem("tokenJwt");
     if(token) {
       let decodedToken = new JwtHelperService().decodeToken(token);
-      return new LoggedUser(decodedToken.name, decodedToken.roles);      
+      return new LoggedUser(decodedToken.id, decodedToken.name, decodedToken.roles);      
     }
     return null;
   }
 }
 
 export class LoggedUser implements ILoggedUser {
+  id: string;
   name: string;
   roles: string[];
 
-  constructor(name: string, roles: string[]) {
+  constructor(id: string, name: string, roles: string[]) {
+    this.id = id;
     this.name = name;
     this.roles = roles;
   }
