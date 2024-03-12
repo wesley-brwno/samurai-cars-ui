@@ -10,6 +10,7 @@ export interface IRegisterUser {
 }
 
 export interface ILoggedUser {
+    id: string,
     name: string,
     roles: string[]
 }
