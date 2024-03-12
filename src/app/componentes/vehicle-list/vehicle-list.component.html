@@ -1,0 +1,30 @@
+<div class="table_container">
+  <table class="table table-bordered table-hover table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Photo</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col" class="optional_column">Model</th>
+        <th scope="col" class="optional_column">Brand</th>
+        <th scope="col">Year</th>
+        <th scope="col" class="optional_column">Created in</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr id="row_hover"
+        *ngFor="let content of vehicles" 
+      >
+        <td>
+          <img [src]="content.pictures[0]" [alt]="content.vehicle.name" class="rounded" height="50px">
+        </td>
+        <td>{{ content.vehicle.name }}</td>
+        <td>{{ content.vehicle.price | currency: 'BRL' }}</td>
+        <td class="optional_column">{{ content.vehicle.model }}</td>
+        <td>{{ content.vehicle.brand }}</td>
+        <td>{{ content.vehicle.year }}</td>
+        <td class="optional_column">{{ content.vehicle.created_at | date }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
