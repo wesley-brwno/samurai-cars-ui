@@ -7,18 +7,28 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AdminComponent } from './pages/admin/admin.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { AddVehicleComponent } from './pages/add-vehicle/add-vehicle.component';
 import { AuthIntercepterService } from './security/auth.intercepeter';
+import { AdminComponent } from './pages/admin/admin.component';
+import { VehicleListComponent } from './componentes/vehicle-list/vehicle-list.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { LandingComponent } from './pages/landing/landing.component';
+import { HomeComponent } from './pages/home/home.component';
+import { VehicleCardComponent } from './componentes/vehicle-card/vehicle-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    AdminComponent,
     HeaderComponent,
-    AddVehicleComponent
+    AddVehicleComponent,
+    AdminComponent,
+    VehicleListComponent,
+    FooterComponent,
+    LandingComponent,
+    HomeComponent,
+    VehicleCardComponent
   ],
   imports: [
     BrowserModule,
