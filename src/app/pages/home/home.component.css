@@ -1,0 +1,22 @@
+.home {
+    padding: 0 5%;
+}
+
+.paginataion-container {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-page {
+    cursor: pointer;
+}
+
+.btn-page span:hover {
+    background-color: 	#72e6bf;
+}
+
+@media screen and (max-width: 1000px) {
+    .home {
+        padding: 1rem 0.2rem;
+    }
+}
