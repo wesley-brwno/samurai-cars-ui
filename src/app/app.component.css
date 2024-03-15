@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 .app-body {
     min-height: 83vh;
 }
