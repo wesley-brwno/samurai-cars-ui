@@ -1,6 +1,9 @@
 <section class="home">
     <div class="card-container">
-        <vehicle-card [vehicleData]="vehiclePage.content"></vehicle-card>
+        <vehicle-card 
+            [vehicleData]="vehiclePage.content"
+            (contactSellerEmitter)="onContactSeller($event)"
+        ></vehicle-card>
     </div>
 
     <div class="paginataion-container">
@@ -26,3 +29,9 @@
           </ul>
     </div>
 </section>
+
+<dialog id="form_modal">
+    <app-contact-form 
+    (onCloseModalEmmiter)="onCloseModal()"
+    [vehicle]="vehicleTobeContacted"></app-contact-form>
+</dialog>

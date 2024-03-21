@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { VehicleData, VehiclePage } from 'src/app/model/vehiclePage';
 import { VehicleService } from 'src/app/services/vehicle.service';
 
@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
 
   vehiclePage!: VehiclePage;
   pageNumbers!: number[];
+  vehicleTobeContacted!: VehicleData;
 
   constructor(private vehicleService: VehicleService) { }
 
@@ -33,6 +34,11 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  onContactSeller(event: VehicleData) {
+    this.vehicleTobeContacted = event;
+    this.showModal();
+  }
+  
   onNextPage() {
     this.getVehicles(`?page=${this.vehiclePage.number + 1}`)
   }
@@ -43,6 +49,16 @@ export class HomeComponent implements OnInit {
 
   onSelectPage(pageNumber: number) {
     this.getVehicles(`?page=${pageNumber}`)
+  }
+
+  onCloseModal() {
+    const modal = document.getElementById("form_modal") as HTMLDialogElement;
+    modal.close();    
+  }
+
+  showModal() {
+    const modal = document.getElementById("form_modal") as HTMLDialogElement;
+    modal.showModal();
   }
 
   loadPageNumbers() {
