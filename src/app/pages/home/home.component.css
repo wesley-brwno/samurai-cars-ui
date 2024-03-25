@@ -3,21 +3,7 @@
     min-height: 88vh;
 }
 
-.paginataion-container {
-    display: flex;
-    justify-content: center;
-}
-
-.btn-page {
-    cursor: pointer;
-}
-
-.btn-page span:hover {
-    background-color: #72e6bf;
-}
-
 /* Form modal styles */
-
 #form_modal {
     border: transparent;
     background: linear-gradient(to right, #b6fbff, #83a4d4);

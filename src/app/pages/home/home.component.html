@@ -5,29 +5,11 @@
             (contactSellerEmitter)="onContactSeller($event)"
         ></vehicle-card>
     </div>
-
-    <div class="paginataion-container">
-        <ul class="pagination">
-            <li class="page-item btn-page">
-                <span class="page-link disabled"
-                    [ngClass]="{'disabled': vehiclePage.number === 0}"
-                    (click)="onPreviousPage()"
-                >Previous</span>
-            </li>
-            <li class="page-item btn-page" *ngFor="let i of pageNumbers">
-                <span class="page-link" 
-                  (click)="onSelectPage(i)"
-                  [ngClass]="{'disabled': vehiclePage.number  === i}"
-                >{{ i + 1 }}</span>
-            </li>
-            <li class="page-item btn-page">
-                <span class="page-link disabled"
-                    [ngClass]="{'disabled': vehiclePage.number + 1 === vehiclePage.totalPages}"
-                    (click)="onNextPage()"
-                >Next</span>
-            </li>
-          </ul>
-    </div>
+    <app-pageable
+        [currentPage]="vehiclePage.number"
+        [totalPages]="vehiclePage.totalPages"
+        (changePageEmmiter)="onChangePage($event)"
+    ></app-pageable>
 </section>
 
 <dialog id="form_modal">

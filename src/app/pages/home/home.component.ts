@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { VehicleData, VehiclePage } from 'src/app/model/vehiclePage';
 import { VehicleService } from 'src/app/services/vehicle.service';
 
@@ -8,9 +8,7 @@ import { VehicleService } from 'src/app/services/vehicle.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
   vehiclePage!: VehiclePage;
-  pageNumbers!: number[];
   vehicleTobeContacted!: VehicleData;
 
   constructor(private vehicleService: VehicleService) { }
@@ -23,7 +21,6 @@ export class HomeComponent implements OnInit {
     this.vehicleService.getVehicles(pageable).subscribe({
       next: (response) => {
         this.vehiclePage = response;
-        this.loadPageNumbers();
       },
       error: (error) => {
         console.log(error);
@@ -38,17 +35,9 @@ export class HomeComponent implements OnInit {
     this.vehicleTobeContacted = event;
     this.showModal();
   }
-  
-  onNextPage() {
-    this.getVehicles(`?page=${this.vehiclePage.number + 1}`)
-  }
 
-  onPreviousPage() {
-    this.getVehicles(`?page=${this.vehiclePage.number - 1}`)
-  }
-
-  onSelectPage(pageNumber: number) {
-    this.getVehicles(`?page=${pageNumber}`)
+  onChangePage(pageNumber: Number) {
+    this.getVehicles(`?page=${ pageNumber }`)
   }
 
   onCloseModal() {
@@ -60,12 +49,4 @@ export class HomeComponent implements OnInit {
     const modal = document.getElementById("form_modal") as HTMLDialogElement;
     modal.showModal();
   }
-
-  loadPageNumbers() {
-    this.pageNumbers =  new Array();
-    for (let i = 0; i < this.vehiclePage.totalPages; i++) {
-      this.pageNumbers.push(i);
-    }
-  }
-
 }
