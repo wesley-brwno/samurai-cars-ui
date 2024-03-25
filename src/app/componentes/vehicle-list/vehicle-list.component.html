@@ -28,3 +28,7 @@
     <app-featured-vehicle [featuredVehicle]="featuredVehicle"></app-featured-vehicle>
   </div>  
 </div>
+
+<app-delete-modal 
+  [vehicleName]="featuredVehicle.vehicle.name"
+  (comfirmDelete)="onConfirmDelete()"></app-delete-modal>

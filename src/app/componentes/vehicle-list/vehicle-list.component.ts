@@ -40,4 +40,7 @@ export class VehicleListComponent implements OnInit {
     this.featuredVehicle = vehicle;
   }
 
+  onConfirmDelete() {
+    
+  }
 }
