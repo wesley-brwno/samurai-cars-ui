@@ -27,7 +27,7 @@ export class VehicleListComponent implements OnInit {
       this.vehicleService.getVehiclesByUser(this.currentUser.id).subscribe({
         next: (response) => {
           this.vehicles = response;
-          this.featuredVehicle = this.vehicles[2];               
+          this.featuredVehicle = this.vehicles[0];               
         },
         error: (error)=> {
           console.log(error);          
@@ -36,11 +36,19 @@ export class VehicleListComponent implements OnInit {
     }
   }
 
-  onSelecVehicle(vehicle: VehicleData) {
-    this.featuredVehicle = vehicle;
+  deleteVehicle() {
+    const vehicleId = this.featuredVehicle.vehicle.id;
+    this.vehicleService.deleteVehicle(vehicleId.toString()).subscribe({
+      next: () => {
+        this.getVehicles();
+      },
+      error: (error) => {
+        console.log(error);        
+      }
+    });
   }
 
-  onConfirmDelete() {
-    
+  onSelecVehicle(vehicle: VehicleData) {
+    this.featuredVehicle = vehicle;
   }
 }
