@@ -1,0 +1,35 @@
+.vehicle_section {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row-reverse;
+}
+
+.table_container {
+    text-align: center;
+    margin-right: 10vw;
+}
+
+.featured {
+    display: flex;
+    min-height: 100%;
+}
+
+@media screen and (max-width: 1600px) {
+    .table_container {
+        margin-right: 5vw;
+    }
+    .featured {
+        left: 5vw;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .table_container {
+        margin: auto;
+    }
+    .featured {
+        display: none;
+    }
+}
+

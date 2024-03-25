@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { VehicleData, VehiclePage } from 'src/app/model/vehiclePage';
+import { Component, OnInit } from '@angular/core';
+import { VehicleData } from 'src/app/model/vehiclePage';
 import { AuthService, LoggedUser } from 'src/app/services/auth.service';
 import { VehicleService } from 'src/app/services/vehicle.service';
 
@@ -9,9 +9,11 @@ import { VehicleService } from 'src/app/services/vehicle.service';
   styleUrls: ['./vehicle-list.component.css']
 })
 export class VehicleListComponent implements OnInit {
+
   vehicles!: VehicleData[];
   currentUser!: LoggedUser | null;
-  
+  featuredVehicle!: VehicleData;
+
   constructor(private authService: AuthService, private vehicleService: VehicleService) { }
 
 
@@ -24,13 +26,18 @@ export class VehicleListComponent implements OnInit {
     if(this.currentUser) {
       this.vehicleService.getVehiclesByUser(this.currentUser.id).subscribe({
         next: (response) => {
-          this.vehicles = response;                    
+          this.vehicles = response;
+          this.featuredVehicle = this.vehicles[2];               
         },
         error: (error)=> {
           console.log(error);          
         }
       });
     }
+  }
+
+  onSelecVehicle(vehicle: VehicleData) {
+    this.featuredVehicle = vehicle;
   }
 
 }
