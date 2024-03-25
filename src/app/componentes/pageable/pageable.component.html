@@ -1,0 +1,22 @@
+<div class="paginataion-container">
+    <ul class="pagination">
+        <li class="page-item btn-page">
+            <span class="page-link disabled"
+                [ngClass]="{'disabled': currentPage === 0}"
+                (click)="onPreviousPage()"
+            >Previous</span>
+        </li>
+        <li class="page-item btn-page" *ngFor="let i of pageNumbers">
+            <span class="page-link" 
+              (click)="onSelectPage(i)"
+              [ngClass]="{'disabled': currentPage  === i}"
+            >{{ i + 1 }}</span>
+        </li>
+        <li class="page-item btn-page">
+            <span class="page-link disabled"
+                [ngClass]="{'disabled': currentPage + 1 === totalPages}"
+                (click)="onNextPage()"
+            >Next</span>
+        </li>
+      </ul>
+</div>

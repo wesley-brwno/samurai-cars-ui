@@ -1,0 +1,13 @@
+.paginataion-container {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-page {
+    cursor: pointer;
+}
+
+.btn-page span:hover {
+    background-color: #72e6bf;
+}
+
