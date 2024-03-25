@@ -61,4 +61,13 @@ export class VehicleService {
       })
     )
   }
+
+  deleteVehicle(id: string) {
+    return this.http.delete(`${API_URL}/vehicles?vehicle_id=${id}`).pipe(
+      map(response => response),
+      catchError((error: HttpErrorResponse) => {
+        throw new Error(error.error);        
+      })
+    )
+  }
 }
