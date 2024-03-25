@@ -16,6 +16,11 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { HomeComponent } from './pages/home/home.component';
 import { VehicleCardComponent } from './componentes/vehicle-card/vehicle-card.component';
+import { VehicleDetailsComponent } from './pages/vehicle-details/vehicle-details.component';
+import { ContactFormComponent } from './componentes/contact-form/contact-form.component';
+import { PageableComponent } from './componentes/pageable/pageable.component';
+import { FeaturedVehicleComponent } from './componentes/featured-vehicle/featured-vehicle.component';
+import { DeleteModalComponent } from './componentes/delete-modal/delete-modal.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +33,12 @@ import { VehicleCardComponent } from './componentes/vehicle-card/vehicle-card.co
     FooterComponent,
     LandingComponent,
     HomeComponent,
-    VehicleCardComponent
+    VehicleCardComponent,
+    VehicleDetailsComponent,
+    ContactFormComponent,
+    PageableComponent,
+    FeaturedVehicleComponent,
+    DeleteModalComponent
   ],
   imports: [
     BrowserModule,
