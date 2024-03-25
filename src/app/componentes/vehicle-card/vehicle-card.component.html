@@ -23,7 +23,7 @@
       <div>
         <button type="button" class="btn btn-outline-dark btn-contact"
           *ngIf="loggedUserId !== content.vehicle.user_id"
-          (click)="onShowContactForm(content)"
+          (click)="onContactClick(content)"
         >
           <img width="23" height="23px" src="https://img.icons8.com/pulsar-line/23/filled-chat.png" alt="filled-chat"/>
         </button>
@@ -34,4 +34,3 @@
     </div>
   </div>
 </div>
-
