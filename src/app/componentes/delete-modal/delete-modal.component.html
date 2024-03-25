@@ -1,0 +1,19 @@
+<dialog id="confirm_delete">
+    <div class="card text-center">
+      <div class="d-flex justify-content-end">
+        <button type="button" class="btn-close" (click)="closeDeleteModal()"></button>
+      </div>
+  
+      <div class="card-body">
+        <h5>Are you sure you want to delete {{ vehicleName }}?</h5>
+        <p class="card-text">This will delete this vehicle permanentely. You cannot undo this action.</p>
+      </div>
+  
+      <div class="card-footer">
+        <div class="d-flex justify-content-around">
+          <button class="btn btn-outline-secondary" type="button" (click)="closeDeleteModal()">Cancel</button>
+          <button class="btn btn-outline-danger" type="button">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
