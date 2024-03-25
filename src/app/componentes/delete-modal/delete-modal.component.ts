@@ -15,6 +15,7 @@ export class DeleteModalComponent {
   }
 
   onConfirmDeleteClick() {
+    this.closeDeleteModal();
     this.comfirmDelete.emit();
   }
 }
