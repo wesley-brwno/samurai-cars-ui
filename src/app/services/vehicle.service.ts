@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { API_URL } from '../utils/utils';
-import { catchError, map, tap } from 'rxjs';
+import { catchError, map } from 'rxjs';
 import { VehicleData, VehiclePage } from '../model/vehiclePage';
 
 @Injectable({
@@ -46,6 +46,15 @@ export class VehicleService {
 
   getVehiclesByUser(userId: string) {
     return this.http.get<VehicleData[]>(`${API_URL}/vehicles?user_id=${userId}`).pipe(
+      map(response => response),
+      catchError((error: HttpErrorResponse) => {
+        throw new Error(error.error);        
+      })
+    )
+  }
+
+  getVehicleById(id: string) {
+    return this.http.get<VehicleData>(`${API_URL}/vehicles/${id}`).pipe(
       map(response => response),
       catchError((error: HttpErrorResponse) => {
         throw new Error(error.error);        
