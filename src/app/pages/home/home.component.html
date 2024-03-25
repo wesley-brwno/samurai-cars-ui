@@ -14,5 +14,6 @@
 
 <dialog id="form_modal">
     <app-contact-form 
+    (onCloseModalEmmiter)="onCloseModal()"
     [vehicle]="vehicleTobeContacted"></app-contact-form>
 </dialog>
