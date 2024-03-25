@@ -41,6 +41,11 @@
     font-size: larger;
 }
 
+#landingPg_cards li {
+    text-align: justify;
+    font-size: large;
+    list-style: circle;
+}
 
 .btns_container {
     display: flex;
