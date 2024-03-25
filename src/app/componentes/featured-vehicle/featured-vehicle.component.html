@@ -1,0 +1,40 @@
+<div>
+    <div class="vehicle_info">
+      <h1>{{ featuredVehicle.vehicle.name }}</h1>
+      <div class="thumbnail_container">
+        <img [src]="featuredVehicle.pictures[destacPhotoIndex]" [alt]="featuredVehicle.vehicle.name" class="thumbnail">
+        <div class="gallery">
+          <div *ngFor="let photo of featuredVehicle.pictures; index as i">
+            <img [src]="photo" [alt]="featuredVehicle.vehicle.name" 
+              [class.selected]="i === destacPhotoIndex"
+              (mouseover)="onMouseOver(i)">
+          </div>
+        </div>
+      </div>
+
+      <div class="vehicle_data">
+          <div>
+            <span>Brand {{ featuredVehicle.vehicle.brand }}</span>
+          </div>
+          <div>
+            <span>Type {{ featuredVehicle.vehicle.vehicle_type }}</span>
+          </div>
+          <div>
+            <span>Model {{ featuredVehicle.vehicle.model }}</span>
+          </div>
+          <div>
+            <span>Year {{ featuredVehicle.vehicle.year }}</span>
+          </div>
+          <div>
+            <span>{{ featuredVehicle.vehicle.price | currency: 'BRL' }}</span>
+          </div>
+      </div>
+
+      <hr>
+
+      <div class="btn_container">
+        <button type="button" class="btn btn-outline-danger">Delete</button>
+        <button type="button" class="btn btn-outline-secondary">Edit</button>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,110 @@
+.vehicle_info {
+    padding: .5rem;
+    width: 50rem;
+    text-align: center;
+    background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.thumbnail_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img.thumbnail {
+    height: 400px;
+    width: 40rem;
+    object-fit: fill;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    height: 400px;
+    width: fit-content;
+    padding: 0.5rem;
+}
+
+.gallery img{
+    height: 70px;
+    border: 2px solid transparent;
+}
+
+.gallery img.selected {
+    border: 2px solid red;
+}
+
+.vehicle_data {
+    width: 100%;
+    display: flex;
+    justify-content: center;    
+    align-content: center;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+    gap: 1rem;
+}
+
+.vehicle_data span {
+    padding: 0.5rem;
+    background-color: yellow;
+    font-size: larger;
+    font-weight: bold;
+    border-radius: 15px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.btn_container {
+    display: flex;
+    justify-content: space-around;
+    margin: .5rem;
+}
+
+@media screen and (max-width: 1700px) {
+    .vehicle_info {
+        width: 35rem;
+    }
+
+    img.thumbnail {
+        height: 300px;
+        width: 30rem;
+        object-fit: fill;
+    }
+    .gallery {
+        height: 300px;
+    }
+    
+    .gallery img {
+        height: 50px;   
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .vehicle_info {
+        width: 26rem;
+    }
+    .thumbnail_container {
+        flex-direction: column;
+    }
+    .gallery {
+        flex-direction: row;
+        height: 50px;
+    }
+    img.thumbnail {
+        height: 300px;
+        width: 25rem;
+        object-fit: fill;
+    }
+    .gallery {
+        height: 50px;
+        width: 20rem;
+    }
+    .gallery img {
+        height: 40px;   
+    }
+    .vehicle_data span {
+        font-size: medium;
+    }
+}
