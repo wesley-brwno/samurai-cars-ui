@@ -15,7 +15,7 @@
 img.thumbnail {
     height: 400px;
     width: 40rem;
-    object-fit: fill;
+    object-fit: cover;
 }
 
 .gallery {
