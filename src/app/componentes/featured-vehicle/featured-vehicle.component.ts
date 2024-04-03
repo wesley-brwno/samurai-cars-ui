@@ -23,4 +23,9 @@ export class FeaturedVehicleComponent implements OnChanges{
     const modal = document.getElementById('confirm_delete') as HTMLDialogElement;
     modal.showModal();
   }
+
+  showEditVehicleModal() {
+    const modal = document.getElementById("edit_vehicle_modal") as HTMLDialogElement;
+    modal.showModal();
+  }
 }
