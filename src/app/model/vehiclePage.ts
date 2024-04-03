@@ -4,7 +4,7 @@ export interface VehiclePage extends PageResponse {
     content: VehicleData[];
 }
 
-interface Vehicle {
+export interface Vehicle {
     brand: string;
     created_at: string;
     id: number;
