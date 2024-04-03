@@ -1,0 +1,64 @@
+<dialog id="edit_vehicle_modal">
+    <form [formGroup]="vehicleForm" (ngSubmit)="onFormSubmit()">
+        <div class="row gy-1 gy-xl-2 p-1 p-xl-2">
+            <div class="d-flex justify-content-center align-items-center" style="gap: 1rem;"
+                *ngFor="let photoUrl of vehicleData.pictures">
+
+                <img [src]="photoUrl" class="rounded" height="70" [alt]="vehicleData.vehicle.name">
+
+                <div class="input-group" style="width: fit-content;">
+                    <label class="input-group-text" for="{{ photoUrl }}">Update</label>
+                    <input type="file" class="form-control" [id]="photoUrl" accept="image/*"
+                        (change)="onPhotoUpload($event, photoUrl)" />
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <label for="name" class="form-label">Name</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="name" formControlName="name" required>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <label for="brand" class="form-label">Brand</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="brand" formControlName="brand" required>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <label for="model" class="form-label">Model</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="model" formControlName="model" required>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <label for="type" class="form-label">Type</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="type" formControlName="vehicle_type" required>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <label for="year" class="form-label">Year</label>
+                <div class="input-group">
+                    <input type="number" class="form-control" id="year" formControlName="year" required>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <label for="price" class="form-label">Price</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="price" formControlName="price" required>
+                </div>
+            </div>
+
+            <div class="button_container">
+                <button type="button" class="btn btn-danger btn-block mb-4"(click)="closeEditModal()">Cancel</button>
+                <button type="submit" class="btn btn-success btn-block mb-4"[disabled]="vehicleForm.invalid" >Save</button>
+            </div>
+        </div>
+    </form>
+</dialog>

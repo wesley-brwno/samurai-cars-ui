@@ -1,0 +1,17 @@
+#edit_vehicle_modal {
+    border: transparent;
+    background: linear-gradient(to right, #b6fbff, #83a4d4);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    border-radius: 10px;
+    width: 800px;
+}
+
+.button_container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.button_container button {
+    flex: 1;
+}
