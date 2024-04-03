@@ -1,10 +1,10 @@
 .landing_page {
     box-sizing: border-box;
-    min-height: 80vh;
+    min-height: 100%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4rem;
     padding: 1.5rem;
 }
 
@@ -73,7 +73,7 @@
     margin: 0;
     width: 99.6vw;
     top: 0;
-    height: 90vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
