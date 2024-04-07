@@ -33,3 +33,9 @@
   [vehicleName]="featuredVehicle.vehicle.name"
   (comfirmDelete)="deleteVehicle()">
 </app-delete-modal>
+
+<app-edit-vehicle-form
+  [vehicleData]="featuredVehicle"
+  (photoRequestBodyEmmiter)="updateVehiclePhoto($event)"
+  (vehicleDataEmmiter)="updateVehicle($event)"
+></app-edit-vehicle-form>
