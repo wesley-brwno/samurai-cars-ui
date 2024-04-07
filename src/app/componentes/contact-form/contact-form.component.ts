@@ -22,11 +22,12 @@ export class ContactFormComponent implements OnInit {
       lastname:['', [Validators.required, Validators.minLength(2)]],
       email:['', [Validators.required, Validators.email]],
       phone:['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
-      message:['', [Validators.required, Validators.minLength(2)]]
+      message:['', [Validators.required, Validators.minLength(10)]]
     })
   }
 
   onCloseForm() {
+    this.contactForm.reset();
     this.onCloseModalEmmiter.emit();
   }
 
@@ -36,8 +37,13 @@ export class ContactFormComponent implements OnInit {
         vehicle_id: this.vehicle.vehicle.id,
         ...this.contactForm.value
       }).subscribe({
-        next: (response) => console.log(response),
-        error: (error) => console.log(error),
+        next: (response) => {
+          this.contactForm.reset(),
+          alert("Your message was sent");
+        },
+        error: (error) => {
+          alert("Fail to sent your message");
+        },
         complete: () => {}   
       })
     }    
