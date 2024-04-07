@@ -9,6 +9,7 @@ import { VehicleData } from 'src/app/model/vehiclePage';
 export class FeaturedVehicleComponent implements OnChanges{
 
   @Input() featuredVehicle!: VehicleData;
+  @Input() showButtons: boolean = true;
   destacPhotoIndex: number = 0;
 
   ngOnChanges(changes: SimpleChanges): void {

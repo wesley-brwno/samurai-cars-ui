@@ -30,9 +30,9 @@
           </div>
       </div>
 
-      <hr>
+      <hr *ngIf="showButtons">
 
-      <div class="btn_container">
+      <div class="btn_container" *ngIf="showButtons">
         <button type="button" class="btn btn-outline-danger" (click)="onShowModal()">Delete</button>
         <button type="button" class="btn btn-outline-secondary" (click)="showEditVehicleModal()">Edit</button>
       </div>
