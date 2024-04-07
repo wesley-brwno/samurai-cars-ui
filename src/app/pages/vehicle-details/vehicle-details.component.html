@@ -1,0 +1,15 @@
+<section class="details_section">
+  <app-featured-vehicle [featuredVehicle]="vehicleData" [showButtons]="false"></app-featured-vehicle>
+
+  <div class="form_container">
+    <app-contact-form [vehicle]="vehicleData"></app-contact-form>
+  </div>
+
+</section>
+
+<hr>
+
+<div *ngIf="vehicles.length > 0">
+  <h2 class="text-center" >More by {{ vehicleData.vehicle.user_id }}</h2>
+  <vehicle-card [vehicleData]="vehicles"></vehicle-card>
+</div>

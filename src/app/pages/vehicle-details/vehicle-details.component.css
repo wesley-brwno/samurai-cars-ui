@@ -1,0 +1,23 @@
+.details_section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.form_container {
+    width: 40vw;
+    background: linear-gradient(to right, #b6fbff, #83a4d4);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    border-radius: 10px;
+    max-height: fit-content;
+    padding: 0.5rem;
+}
+
+@media screen and (max-width: 900px) {
+    .form_container {
+        width: fit-content;
+    }
+}
