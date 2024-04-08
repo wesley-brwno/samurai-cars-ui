@@ -10,6 +10,6 @@
 <hr>
 
 <div *ngIf="vehicles.length > 0">
-  <h2 class="text-center" >More by {{ vehicleData.vehicle.user_id }}</h2>
+  <h2 class="text-center" >More by {{ vehicleData.vehicle.owner.name }}</h2>
   <vehicle-card [vehicleData]="vehicles"></vehicle-card>
 </div>

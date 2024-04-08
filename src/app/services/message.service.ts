@@ -13,7 +13,7 @@ export class MessageService {
   postContactMessage(formData: any) {
     return this.http.post(`${API_URL}/messages`, formData).pipe(
       map(response => response),
-      catchError((error: HttpErrorResponse) => {
+      catchError((error: HttpErrorResponse) => {      
         throw new Error(error.error)
       })
     )

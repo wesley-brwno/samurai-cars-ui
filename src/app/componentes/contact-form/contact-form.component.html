@@ -1,7 +1,7 @@
 <form [formGroup]="contactForm" (ngSubmit)="onFormSubmit()">
     <div class="row gy-1 gy-xl-2 p-1 p-xl-2">
 
-        <h2 class="text-center fw-bold">Send a message to {{ vehicle.vehicle.user_id}}</h2>
+        <h2 class="text-center fw-bold">Send a message to {{ vehicle.vehicle.owner.name }}</h2>
 
         <div class="vehicle-info" id="vehicle-info">
             <img [src]="vehicle.pictures[0]" class="img-thumbnail" alt="...">

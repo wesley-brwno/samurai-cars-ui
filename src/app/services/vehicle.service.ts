@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { API_URL } from '../utils/utils';
 import { catchError, map } from 'rxjs';
-import { VehicleData, VehiclePage } from '../model/vehiclePage';
+import { Vehicle, VehicleData, VehiclePage } from '../model/vehiclePage';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +32,15 @@ export class VehicleService {
         }
         throw new Error(error.error);
       }) 
+    )
+  }
+
+  putVehiclePhoto(multipartPhoto: FormData, photoUrl: string) {
+    return this.http.put<FormData>(`${photoUrl}`, multipartPhoto).pipe(
+      map(response => response),
+      catchError((error: HttpErrorResponse) => {
+        throw error.error;
+      })
     )
   }
 
@@ -67,6 +76,15 @@ export class VehicleService {
       map(response => response),
       catchError((error: HttpErrorResponse) => {
         throw new Error(error.error);        
+      })
+    )
+  }
+
+  putVehicle(vehicle: Vehicle) {
+    return this.http.put<Vehicle>(`${API_URL}/vehicles`, vehicle).pipe(
+      map(response => response),
+      catchError((error: HttpErrorResponse) => {
+        throw new Error(error.error);
       })
     )
   }

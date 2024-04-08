@@ -12,12 +12,17 @@ export interface Vehicle {
     model: string;
     price: number;
     vehicle_type: string;
-    user_id: number;
+    owner: Owner;
     year: number;
 }
 
 export interface VehicleData {
     vehicle: Vehicle;
     pictures: string[];
+}
+
+interface Owner {
+    user_id: string,
+    name: string
 }
   

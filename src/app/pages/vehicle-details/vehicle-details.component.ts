@@ -35,7 +35,7 @@ export class VehicleDetailsComponent implements OnInit {
   }
 
   getVehiclesByUser() {
-    this.vehicleService.getVehiclesByUser(this.vehicleData.vehicle.user_id.toString()).subscribe({
+    this.vehicleService.getVehiclesByUser(this.vehicleData.vehicle.owner.user_id).subscribe({
       next: (response) => {
         this.vehicles = response;
       },
