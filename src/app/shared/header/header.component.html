@@ -7,15 +7,16 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">               
                 <a routerLink="home" class="nav-item nav-link active">Home</a>
+                <a [href]="swaggerUrl" target="_blank" class="nav-item nav-link active">API</a>
                 <a routerLink="admin" class="nav-item nav-link active"
-                    *ngIf="authenticationSevice.isUserLogged()"
+                    *ngIf="isUserLogged"
                 >Account</a>
             </div>
 
             <div class="navbar-nav ms-auto">
                 <button class="button-31 nav-item nav-link" 
                     (click)="onLogin()"
-                    *ngIf="!authenticationSevice.isUserLogged(); else logout"
+                    *ngIf="!isUserLogged; else logout"
                 > Login </button>
 
                 <ng-template #logout>
