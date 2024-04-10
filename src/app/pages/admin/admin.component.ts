@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+  showVehicles: boolean = true;
   
   ngOnInit(): void {
     throw new Error('Method not implemented.');

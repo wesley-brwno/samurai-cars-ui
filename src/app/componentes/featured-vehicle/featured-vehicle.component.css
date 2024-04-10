@@ -81,9 +81,9 @@ img.thumbnail {
     }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1320px) {
     .vehicle_info {
-        width: 26rem;
+        width: 25rem;
     }
     .thumbnail_container {
         flex-direction: column;

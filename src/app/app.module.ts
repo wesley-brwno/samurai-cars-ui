@@ -22,6 +22,7 @@ import { PageableComponent } from './componentes/pageable/pageable.component';
 import { FeaturedVehicleComponent } from './componentes/featured-vehicle/featured-vehicle.component';
 import { DeleteModalComponent } from './componentes/delete-modal/delete-modal.component';
 import { EditVehicleFormComponent } from './componentes/edit-vehicle-form/edit-vehicle-form.component';
+import { MessageListComponent } from './componentes/message-list/message-list.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { EditVehicleFormComponent } from './componentes/edit-vehicle-form/edit-v
     PageableComponent,
     FeaturedVehicleComponent,
     DeleteModalComponent,
-    EditVehicleFormComponent
+    EditVehicleFormComponent,
+    MessageListComponent
   ],
   imports: [
     BrowserModule,
