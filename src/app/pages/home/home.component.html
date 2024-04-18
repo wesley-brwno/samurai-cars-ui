@@ -1,19 +1,16 @@
-<section class="home">
+<section class="home" *ngIf="!loadingData else loading">
     <div class="card-container">
-        <vehicle-card 
-            [vehicleData]="vehiclePage.content"
-            (contactSellerEmitter)="onContactSeller($event)"
-        ></vehicle-card>
+        <vehicle-card [vehicleData]="vehiclePage.content"
+            (contactSellerEmitter)="onContactSeller($event)"></vehicle-card>
     </div>
-    <app-pageable
-        [currentPage]="vehiclePage.number"
-        [totalPages]="vehiclePage.totalPages"
-        (changePageEmmiter)="onChangePage($event)"
-    ></app-pageable>
+    <app-pageable [currentPage]="vehiclePage.number" [totalPages]="vehiclePage.totalPages"
+        (changePageEmmiter)="onChangePage($event)"></app-pageable>
 </section>
 
 <dialog id="form_modal">
-    <app-contact-form 
-    (onCloseModalEmmiter)="onCloseModal()"
-    [vehicle]="vehicleTobeContacted"></app-contact-form>
+    <app-contact-form (onCloseModalEmmiter)="onCloseModal()" [vehicle]="vehicleTobeContacted"></app-contact-form>
 </dialog>
+
+<ng-template #loading>
+    <app-loading></app-loading>
+</ng-template>

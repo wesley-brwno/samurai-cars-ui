@@ -10,6 +10,7 @@ import { VehicleService } from 'src/app/services/vehicle.service';
 export class HomeComponent implements OnInit {
   vehiclePage!: VehiclePage;
   vehicleTobeContacted!: VehicleData;
+  loadingData: boolean = true;
 
   constructor(private vehicleService: VehicleService) { }
 
@@ -26,7 +27,7 @@ export class HomeComponent implements OnInit {
         console.log(error);
       },
       complete: () => {
-
+        this.loadingData = false;
       }
     })
   }
