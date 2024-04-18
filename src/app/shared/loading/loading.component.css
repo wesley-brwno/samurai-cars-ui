@@ -1,0 +1,7 @@
+.loading-content {
+    height: 82.8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
