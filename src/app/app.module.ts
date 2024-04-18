@@ -23,6 +23,7 @@ import { FeaturedVehicleComponent } from './componentes/featured-vehicle/feature
 import { DeleteModalComponent } from './componentes/delete-modal/delete-modal.component';
 import { EditVehicleFormComponent } from './componentes/edit-vehicle-form/edit-vehicle-form.component';
 import { MessageListComponent } from './componentes/message-list/message-list.component';
+import { LoadingComponent } from './shared/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { MessageListComponent } from './componentes/message-list/message-list.co
     FeaturedVehicleComponent,
     DeleteModalComponent,
     EditVehicleFormComponent,
-    MessageListComponent
+    MessageListComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
