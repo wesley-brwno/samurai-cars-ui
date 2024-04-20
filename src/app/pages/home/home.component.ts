@@ -8,18 +8,22 @@ import { VehicleService } from 'src/app/services/vehicle.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
   vehiclePage!: VehiclePage;
   vehicleTobeContacted!: VehicleData;
   loadingData: boolean = true;
+  pageable!: string
 
   constructor(private vehicleService: VehicleService) { }
 
   ngOnInit(): void {
-    this.getVehicles("?page=0");
+    this.pageable = "?page=0&sort=createdAt&sort=name";
+    this.getVehicles();
   }
 
-  getVehicles(pageable: string) {
-    this.vehicleService.getVehicles(pageable).subscribe({
+  getVehicles() {
+    this.loadingData = true;
+    this.vehicleService.getVehicles(this.pageable).subscribe({
       next: (response) => {
         this.vehiclePage = response;
       },
@@ -38,12 +42,19 @@ export class HomeComponent implements OnInit {
   }
 
   onChangePage(pageNumber: Number) {
-    this.getVehicles(`?page=${ pageNumber }`)
+    this.pageable = `?page=${pageNumber}${this.pageable.substring(7)}`;    
+    this.getVehicles();
   }
 
   onCloseModal() {
     const modal = document.getElementById("form_modal") as HTMLDialogElement;
     modal.close();    
+  }
+
+  orderVehicleBy(event: HTMLSelectElement) {
+    const option = event.value;
+    this.pageable = option == "name" ? "?page=0&sort=name" : `?page=0&sort=${option}&sort=name`;
+    this.getVehicles();
   }
 
   showModal() {

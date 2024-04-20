@@ -1,7 +1,23 @@
 <section class="home" *ngIf="!loadingData else loading">
-    <div class="card-container">
-        <vehicle-card [vehicleData]="vehiclePage.content"
-            (contactSellerEmitter)="onContactSeller($event)"></vehicle-card>
+
+    <div class="vehicle_catalogue">
+        <div class="actions">
+            <div class="sort-options">
+  
+                <div>
+                    <select class="form-select form-select-lg mb-3" #select (change)="orderVehicleBy(select)">
+                        <option selected hidden>Order by</option>
+                        <option value="name">name</option>
+                        <option value="price">price</option>
+                        <option value="year">year</option>
+                        <option value="createdAt">creation</option>
+                    </select>
+                </div>
+
+            </div>
+
+        </div>
+        <vehicle-card [vehicleData]="vehiclePage.content" (contactSellerEmitter)="onContactSeller($event)"></vehicle-card>
     </div>
     <app-pageable [currentPage]="vehiclePage.number" [totalPages]="vehiclePage.totalPages"
         (changePageEmmiter)="onChangePage($event)"></app-pageable>
