@@ -13,12 +13,16 @@ export class HomeComponent implements OnInit {
   vehicleTobeContacted!: VehicleData;
   loadingData: boolean = true;
   pageable!: string
+  brands!: string[];
+  years!: string[];
 
   constructor(private vehicleService: VehicleService) { }
 
   ngOnInit(): void {
-    this.pageable = "?page=0&sort=createdAt&sort=name";
+    this.pageable = "all?page=0&sort=createdAt,desc";
     this.getVehicles();
+    this.getBrands();
+    this.getYears();
   }
 
   getVehicles() {
@@ -36,13 +40,37 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  getBrands() {
+    this.vehicleService.getBrands().subscribe({
+      next: (response) => {
+        this.brands = response;        
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    })
+  }
+
+  getYears() {
+    this.vehicleService.getYears().subscribe({
+      next: (response) => {
+        this.years = response;               
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    })
+  }
+
   onContactSeller(event: VehicleData) {
     this.vehicleTobeContacted = event;
     this.showModal();
   }
 
   onChangePage(pageNumber: Number) {
-    this.pageable = `?page=${pageNumber}${this.pageable.substring(7)}`;    
+    const pageIndex = this.pageable.indexOf("page");
+    const sortIndex = this.pageable.indexOf("sort")
+    this.pageable = `${this.pageable.substring(0, pageIndex)}page=${pageNumber}&${this.pageable.substring(sortIndex)}`;  
     this.getVehicles();
   }
 
@@ -51,14 +79,28 @@ export class HomeComponent implements OnInit {
     modal.close();    
   }
 
-  orderVehicleBy(event: HTMLSelectElement) {
-    const option = event.value;
-    this.pageable = option == "name" ? "?page=0&sort=name" : `?page=0&sort=${option}&sort=name`;
-    this.getVehicles();
-  }
-
   showModal() {
     const modal = document.getElementById("form_modal") as HTMLDialogElement;
     modal.showModal();
+  }
+
+  filterBrand(event: HTMLSelectElement) {
+    const value = event.value;
+    this.pageable = `brand/${value}?page=0`;    
+    this.getVehicles();
+  }
+
+  filterYear(event: HTMLSelectElement) {
+    const value = event.value;
+    this.pageable = `year/${value}?page=0`;
+    this.getVehicles();
+  }
+    
+
+  orderVehicleBy(event: HTMLSelectElement) {
+    const option = event.value;
+    const pageIndex = this.pageable.indexOf("page");
+    this.pageable = `${this.pageable.substring(0, pageIndex)}` + `${option === "name" ? "page=0&sort=name" : "page=0&sort="+ option+"&sort=name"}`;    
+    this.getVehicles();
   }
 }

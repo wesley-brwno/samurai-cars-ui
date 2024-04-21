@@ -10,8 +10,28 @@
                         <option value="name">name</option>
                         <option value="price">price</option>
                         <option value="year">year</option>
-                        <option value="createdAt">creation</option>
+                        <option value="createdAt">upload</option>
                     </select>
+                </div>
+
+                <div>
+                    <select class="form-select form-select-lg mb-3" #selectBrand (change)="filterBrand(selectBrand)">
+                        <option selected hidden>Brand</option>
+                        <option [value]="brand" *ngFor="let brand of brands">{{ brand }}</option>
+                    </select>
+                </div>
+
+                <div>
+                    <select class="form-select form-select-lg mb-3" #selectYear (change)="filterYear(selectYear)">
+                        <option selected hidden>Year</option>
+                        <option [value]="year" *ngFor="let year of years">{{ year }}</option>
+                    </select>
+                </div>
+
+                <div>
+                    <form  role="search">
+                        <input class="form-control" style="width: 90%; margin: auto;" type="search" placeholder="Search" aria-label="Search">
+                    </form>
                 </div>
 
             </div>
@@ -19,8 +39,11 @@
         </div>
         <vehicle-card [vehicleData]="vehiclePage.content" (contactSellerEmitter)="onContactSeller($event)"></vehicle-card>
     </div>
-    <app-pageable [currentPage]="vehiclePage.number" [totalPages]="vehiclePage.totalPages"
-        (changePageEmmiter)="onChangePage($event)"></app-pageable>
+    <app-pageable *ngIf="vehiclePage.totalPages > 1"
+        [currentPage]="vehiclePage.number" 
+        [totalPages]="vehiclePage.totalPages"
+        (changePageEmmiter)="onChangePage($event)">
+    </app-pageable>
 </section>
 
 <dialog id="form_modal">

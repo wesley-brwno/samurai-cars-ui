@@ -45,7 +45,7 @@ export class VehicleService {
   }
 
   getVehicles(pageable: string) {
-    return this.http.get<VehiclePage>(`${API_URL}/vehicles/all${pageable}`).pipe(
+    return this.http.get<VehiclePage>(`${API_URL}/vehicles/${pageable}`).pipe(
       map(response => response),
       catchError((error: HttpErrorResponse) => {
         throw new Error(error.error);        
