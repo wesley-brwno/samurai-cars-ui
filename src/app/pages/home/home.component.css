@@ -25,6 +25,12 @@
     width: 140px;
 }
 
+.input_container {
+    width: 150px;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
 /* Form modal styles */
 #form_modal {
     border: transparent;

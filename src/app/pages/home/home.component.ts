@@ -95,7 +95,15 @@ export class HomeComponent implements OnInit {
     this.pageable = `year/${value}?page=0`;
     this.getVehicles();
   }
-    
+  
+  searchByName() {
+    const inputElement = document.getElementById("nameInput") as HTMLInputElement;
+    const name = inputElement.value;
+    if (name != "") {
+      this.pageable = `search?name=${name}`;
+      this.getVehicles();
+    }    
+  }
 
   orderVehicleBy(event: HTMLSelectElement) {
     const option = event.value;
