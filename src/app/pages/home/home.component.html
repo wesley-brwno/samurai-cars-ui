@@ -41,7 +41,7 @@
                 </div>
 
                 <div *ngIf="isFilterApplied()">
-                    <button class="btn btn-secondary">Clear filters</button>
+                    <button class="btn btn-secondary" (click)="clearFilters()">Clear filters</button>
                 </div>
             </div>
         </div>
