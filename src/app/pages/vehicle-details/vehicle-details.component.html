@@ -11,5 +11,5 @@
 
 <div *ngIf="vehicles.length > 0">
   <h2 class="text-center" >More by {{ vehicleData.vehicle.owner.name }}</h2>
-  <vehicle-card [vehicleData]="vehicles"></vehicle-card>
+  <vehicle-card [vehicleData]="vehicles" [showContacButton]="false"></vehicle-card>
 </div>
