@@ -107,12 +107,17 @@ export class HomeComponent implements OnInit {
 
   orderVehicleBy(event: HTMLSelectElement) {
     const option = event.value;
-    console.log(this.pageable);
-
     const pageIndex = this.pageable.indexOf("page");
-    this.pageable = `${this.pageable.substring(0, pageIndex)}` + `${option === "name" ? "page=0&sort=name" : "page=0&sort="+ option+"&sort=name"}`; 
-    console.log(this.pageable);
-       
+    this.pageable = `${this.pageable.substring(0, pageIndex)}` + `${option === "name" ? "page=0&sort=name" : "page=0&sort="+ option+"&sort=name"}`;        
+    this.getVehicles();
+  }
+
+  isFilterApplied() {
+    return !this.pageable.includes("sort=createdAt,desc");
+  }
+
+  clearFilters() {
+    this.pageable = "all?page=0&sort=createdAt,desc";
     this.getVehicles();
   }
 }

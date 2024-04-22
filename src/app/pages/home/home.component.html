@@ -39,6 +39,10 @@
                         </svg>
                     </span>
                 </div>
+
+                <div *ngIf="isFilterApplied()">
+                    <button class="btn btn-secondary">Clear filters</button>
+                </div>
             </div>
         </div>
 
