@@ -21,10 +21,7 @@
       </table>
 
       <div>
-        <button type="button" class="btn btn-outline-dark btn-contact"
-          *ngIf="loggedUserId !== content.vehicle.owner.user_id"
-          (click)="onContactClick(content)"
-        >
+        <button type="button" class="btn btn-outline-dark btn-contact" *ngIf="showContacButton" (click)="onContactClick(content)">
           <img width="23" height="23px" src="https://img.icons8.com/pulsar-line/23/filled-chat.png" alt="filled-chat"/>
         </button>
         <button class="btn btn-link" type="button"

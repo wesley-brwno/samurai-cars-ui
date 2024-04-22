@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { VehicleData } from 'src/app/model/vehiclePage';
 import { AuthService } from 'src/app/services/auth.service';
@@ -10,29 +10,19 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class VehicleCardComponent {
 
-  @Input()
-  vehicleData!: VehicleData[];
-  loggedUserId: any;
-  toggleContactForm: boolean = true;
+  @Input()vehicleData!: VehicleData[];
+  @Input() showContacButton: boolean = true;
   @Output() contactSellerEmitter: EventEmitter<VehicleData> = new EventEmitter();
 
-  constructor(private router: Router, authService: AuthService) {
-    if (authService.isUserLogged()) {
-      this.loggedUserId = authService.getCurrentUser()?.id;
-    }
+  constructor(private router: Router) {
   }
 
   onSeeMoreClick(id: number) {
     this.router.navigate([`vehicle-details/${id}`]);
   }
 
-  onShowContactForm(_t4: VehicleData) {
-    throw new Error('Method not implemented.');
-    // Todo
-  }
 
   onContactClick(vehicle: VehicleData) {
     this.contactSellerEmitter.emit(vehicle);
   }
-
 }
