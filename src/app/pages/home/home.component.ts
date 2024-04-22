@@ -100,15 +100,19 @@ export class HomeComponent implements OnInit {
     const inputElement = document.getElementById("nameInput") as HTMLInputElement;
     const name = inputElement.value;
     if (name != "") {
-      this.pageable = `search?name=${name}`;
+      this.pageable = `search?name=${name}&page=0`;
       this.getVehicles();
     }    
   }
 
   orderVehicleBy(event: HTMLSelectElement) {
     const option = event.value;
+    console.log(this.pageable);
+
     const pageIndex = this.pageable.indexOf("page");
-    this.pageable = `${this.pageable.substring(0, pageIndex)}` + `${option === "name" ? "page=0&sort=name" : "page=0&sort="+ option+"&sort=name"}`;    
+    this.pageable = `${this.pageable.substring(0, pageIndex)}` + `${option === "name" ? "page=0&sort=name" : "page=0&sort="+ option+"&sort=name"}`; 
+    console.log(this.pageable);
+       
     this.getVehicles();
   }
 }
