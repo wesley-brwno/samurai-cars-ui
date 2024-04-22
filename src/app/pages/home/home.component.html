@@ -39,12 +39,11 @@
                         </svg>
                     </span>
                 </div>
-
             </div>
-
         </div>
-        <vehicle-card [vehicleData]="vehiclePage.content"
-            (contactSellerEmitter)="onContactSeller($event)"></vehicle-card>
+
+        <vehicle-card [vehicleData]="vehiclePage.content"(contactSellerEmitter)="onContactSeller($event)"></vehicle-card>
+        
     </div>
     <app-pageable *ngIf="vehiclePage.totalPages > 1" [currentPage]="vehiclePage.number"
         [totalPages]="vehiclePage.totalPages" (changePageEmmiter)="onChangePage($event)">
