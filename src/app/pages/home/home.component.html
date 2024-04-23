@@ -5,7 +5,7 @@
             <div class="sort-options">
 
                 <div>
-                    <select class="form-select form-select-lg mb-3" #select (change)="orderVehicleBy(select)">
+                    <select class="form-select form-select-lg" #select (change)="orderVehicleBy(select)">
                         <option selected hidden>Order by</option>
                         <option value="name">name</option>
                         <option value="price">price</option>
@@ -15,21 +15,28 @@
                 </div>
 
                 <div>
-                    <select class="form-select form-select-lg mb-3" #selectBrand (change)="filterBrand(selectBrand)">
+                    <select class="form-select form-select-lg" #selectSeller (change)="filterBrand(selectBrand)">
+                        <option selected hidden>Seller</option>
+                        <option [value]="brand" *ngFor="let brand of brands">{{ brand }}</option>
+                    </select>
+                </div>
+
+                <div>
+                    <select class="form-select form-select-lg" #selectBrand (change)="filterBrand(selectBrand)">
                         <option selected hidden>Brand</option>
                         <option [value]="brand" *ngFor="let brand of brands">{{ brand }}</option>
                     </select>
                 </div>
 
                 <div>
-                    <select class="form-select form-select-lg mb-3" #selectYear (change)="filterYear(selectYear)">
+                    <select class="form-select form-select-lg" #selectYear (change)="filterYear(selectYear)">
                         <option selected hidden>Year</option>
                         <option [value]="year" *ngFor="let year of years">{{ year }}</option>
                     </select>
                 </div>
 
                 <div class="input_container">
-                    <input id="nameInput" class="form-control" style="width: 67%; margin: auto;" type="search" placeholder="Search"aria-label="Search"
+                    <input id="nameInput" class="form-control" type="search" placeholder="Search"aria-label="Search"
                         (keydown.enter)="searchByName()">
                     <span class="input-group-text" (click)="searchByName()">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"class="bi bi-search" viewBox="0 0 16 16">
