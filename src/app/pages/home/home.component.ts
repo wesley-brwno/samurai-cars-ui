@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   vehicleTobeContacted!: VehicleData;
   loadingData: boolean = true;
   pageable!: string
+  sellers!: string[];
   brands!: string[];
   years!: string[];
 
@@ -23,6 +24,7 @@ export class HomeComponent implements OnInit {
     this.getVehicles();
     this.getBrands();
     this.getYears();
+    this.getSellers();
   }
 
   getVehicles() {
@@ -62,6 +64,17 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  getSellers() {
+    this.vehicleService.getSellers().subscribe({
+      next: (response) => {
+        this.sellers = response;                       
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    })
+  }
+
   onContactSeller(event: VehicleData) {
     this.vehicleTobeContacted = event;
     this.showModal();
@@ -93,6 +106,13 @@ export class HomeComponent implements OnInit {
   filterYear(event: HTMLSelectElement) {
     const value = event.value;
     this.pageable = `year/${value}?page=0`;
+    this.getVehicles();
+  }
+
+
+  filterSeller(event: HTMLSelectElement) {
+    const value = event.value;
+    this.pageable = `seller/${value}?page=0`;        
     this.getVehicles();
   }
   

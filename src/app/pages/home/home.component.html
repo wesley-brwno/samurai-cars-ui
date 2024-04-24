@@ -15,9 +15,9 @@
                 </div>
 
                 <div>
-                    <select class="form-select form-select-lg" #selectSeller (change)="filterBrand(selectBrand)">
+                    <select class="form-select form-select-lg" #selectSeller (change)="filterSeller(selectSeller)">
                         <option selected hidden>Seller</option>
-                        <option [value]="brand" *ngFor="let brand of brands">{{ brand }}</option>
+                        <option [value]="seller" *ngFor="let seller of sellers">{{ seller }}</option>
                     </select>
                 </div>
 

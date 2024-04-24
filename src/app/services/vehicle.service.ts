@@ -106,4 +106,13 @@ export class VehicleService {
       })
     )
   }
+
+  getSellers() {
+    return this.http.get<string[]>(`${API_URL}/vehicles/seller`).pipe(
+      map(response => response),
+      catchError((error: HttpErrorResponse) => {
+        throw new Error(error.error);
+      })
+    )
+  }
 }
