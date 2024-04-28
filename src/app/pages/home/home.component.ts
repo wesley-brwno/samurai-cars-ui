@@ -32,6 +32,7 @@ export class HomeComponent implements OnInit {
     this.vehicleService.getVehicles(this.pageable).subscribe({
       next: (response) => {
         this.vehiclePage = response;
+        this.scrollToTop();
       },
       error: (error) => {
         console.log(error);
@@ -139,5 +140,13 @@ export class HomeComponent implements OnInit {
   clearFilters() {
     this.pageable = "all?page=0&sort=createdAt,desc";
     this.getVehicles();
+  }
+
+  scrollToTop() {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
   }
 }
