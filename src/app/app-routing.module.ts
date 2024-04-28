@@ -10,7 +10,8 @@ import { VehicleDetailsComponent } from './pages/vehicle-details/vehicle-details
 const routes: Routes = [
   { path: "", component: LandingComponent },
   { path: "login", component: LoginComponent },
-  { path: "admin", component: DashboardComponent },
+  { path: "login/:auth", component: LoginComponent },
+  { path: "dashboard", component: DashboardComponent },
   { path: "home", component: HomeComponent },
   { path: "add-vehicle", component: AddVehicleComponent },
   { path: "vehicle-details/:id", component: VehicleDetailsComponent }
