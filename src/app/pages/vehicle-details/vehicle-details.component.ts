@@ -26,6 +26,7 @@ export class VehicleDetailsComponent implements OnInit {
       next: (response) => {
         this.vehicleData = response;
         this.getVehiclesByUser();      
+        this.scrollToTop();
       },
       error: (error) => {
         console.log(error);        
@@ -45,4 +46,11 @@ export class VehicleDetailsComponent implements OnInit {
     })
   }
 
+  scrollToTop() {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }
 }
