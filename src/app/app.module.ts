@@ -10,7 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/header/header.component';
 import { AddVehicleComponent } from './pages/add-vehicle/add-vehicle.component';
 import { AuthIntercepterService } from './security/auth.intercepeter';
-import { AdminComponent } from './pages/admin/admin.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { VehicleListComponent } from './componentes/vehicle-list/vehicle-list.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { LandingComponent } from './pages/landing/landing.component';
@@ -31,7 +31,7 @@ import { LoadingComponent } from './shared/loading/loading.component';
     LoginComponent,
     HeaderComponent,
     AddVehicleComponent,
-    AdminComponent,
+    DashboardComponent,
     VehicleListComponent,
     FooterComponent,
     LandingComponent,
