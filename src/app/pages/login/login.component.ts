@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,9 +14,17 @@ export class LoginComponent implements OnInit{
   formRegister!: FormGroup;
   toggleForm: boolean = true;
 
-  constructor(private authService: AuthService, private fb: FormBuilder, private router: Router) {
+  constructor(private authService: AuthService, private fb: FormBuilder, private router: Router, private route: ActivatedRoute) {
   }
+
   ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      const action = params['auth'];
+      if (action === 'register') {
+        this.toggleForm = false;       
+      }
+    })
+
     this.formLogin = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(5)]]
