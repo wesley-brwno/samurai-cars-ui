@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">               
                 <a routerLink="home" class="nav-item nav-link active">Home</a>
-                <a routerLink="login" *ngIf="!isUserLogged" class="nav-item nav-link active">Sell</a>
+                <a routerLink="login/register" *ngIf="!isUserLogged" class="nav-item nav-link active">Sell</a>
                 <a [href]="swaggerUrl" target="_blank" class="nav-item nav-link active">API</a>
                 <a routerLink="dashboard" *ngIf="isUserLogged" class="nav-item nav-link active">Dashboard</a>
             </div>
