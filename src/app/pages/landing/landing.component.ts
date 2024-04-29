@@ -16,7 +16,7 @@ export class LandingComponent {
   onAdminClick() {
     this.authService.executeAuthentication({email: "samuraiAdmin@email.com", password: "samuraiAdmin"}).subscribe({
       next: (response) => {
-        this.router.navigate(['admin']);
+        this.router.navigate(['dashboard']);
       }
     })
   }
@@ -24,7 +24,7 @@ export class LandingComponent {
   onUserClick() {
     this.authService.executeAuthentication({email: "xaropinho@email.com", password: "xaropinhoUser"}).subscribe({
       next: (response) => {
-        this.router.navigate(['admin']);
+        this.router.navigate(['dashboard']);
       }
     })
   }

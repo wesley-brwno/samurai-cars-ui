@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit{
   onSubmitLogin() {    
     this.authService.executeAuthentication(this.formLogin.value).subscribe({
       next: () => {
-        this.router.navigate(['admin']);
+        this.router.navigate(['dashboard']);
       },
       error: (error) => {        
         this.formLogin.setErrors({ authError: error.title });
