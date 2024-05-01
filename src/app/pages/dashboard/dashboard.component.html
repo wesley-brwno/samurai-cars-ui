@@ -31,14 +31,13 @@
     
     <hr>
 
-    <div *ngIf="showVehicles; then vehicleList else messageList"></div>
+    <ng-template *ngIf="showVehicles; then vehicleList else messageList"></ng-template>
 
     <ng-template #vehicleList>
-        <app-vehicle-list></app-vehicle-list>
+        <app-manage-vehicle></app-manage-vehicle>
     </ng-template>
 
     <ng-template #messageList>
         <app-message-list></app-message-list>
     </ng-template>
-
 </section>
