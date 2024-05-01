@@ -11,7 +11,6 @@ import { HeaderComponent } from './shared/header/header.component';
 import { AddVehicleComponent } from './pages/add-vehicle/add-vehicle.component';
 import { AuthIntercepterService } from './security/auth.intercepeter';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { VehicleListComponent } from './componentes/vehicle-list/vehicle-list.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -24,6 +23,7 @@ import { DeleteModalComponent } from './componentes/delete-modal/delete-modal.co
 import { EditVehicleFormComponent } from './componentes/edit-vehicle-form/edit-vehicle-form.component';
 import { MessageListComponent } from './componentes/message-list/message-list.component';
 import { LoadingComponent } from './shared/loading/loading.component';
+import { ManageVehicleComponent } from './componentes/manage-vehicle/manage-vehicle.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,6 @@ import { LoadingComponent } from './shared/loading/loading.component';
     HeaderComponent,
     AddVehicleComponent,
     DashboardComponent,
-    VehicleListComponent,
     FooterComponent,
     LandingComponent,
     HomeComponent,
@@ -44,7 +43,8 @@ import { LoadingComponent } from './shared/loading/loading.component';
     DeleteModalComponent,
     EditVehicleFormComponent,
     MessageListComponent,
-    LoadingComponent
+    LoadingComponent,
+    ManageVehicleComponent
   ],
   imports: [
     BrowserModule,
