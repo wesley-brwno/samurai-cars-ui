@@ -1,0 +1,27 @@
+.manage_vehicle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10vw;
+}
+
+table {
+    text-align: center;
+}
+
+table th:not(:first-child):hover {
+    cursor: pointer;
+    background-color: rgba(37, 218, 218, 0.644);
+    transition: 500ms;
+}
+
+.featured {
+    display: block;
+    width: fit-content;
+}
+
+.vehicles_by_user {
+    width: fit-content;
+    margin: auto;
+}
