@@ -1,4 +1,4 @@
-<section class="bg-light py-3 py-md-5 m-1">
+<section class="bg-light d-flex justify-content-center align-items-center">
     <div class="container">
         <div class="row justify-content-center">
             <div class="card border border-light-subtle rounded-3 shadow-sm">
@@ -65,13 +65,19 @@
                 </div>
             </div>
             <div class="buttons_container">
-                <div class="d-grid gap-2 col-6 mx-auto">
-                    <button class="btn btn-success" type="submit"
-                        [disabled]="vehicleRequest.invalid">Save</button>
-                </div>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                    <button class="btn btn-danger" type="button" (click)="onCancelClick()">Cancel</button>
-                </div>
+                <button *ngIf="sendingData else actionBtns" class="btn btn-primary" type="button" disabled>
+                    <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+                    <span role="status">Sending data ...</span>
+                </button>
+
+                <ng-template #actionBtns>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-success" type="submit" [disabled]="vehicleRequest.invalid">Save</button>
+                    </div>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-danger" type="button" (click)="onCancelClick()">Cancel</button>
+                    </div>
+                </ng-template>
             </div>
         </form>
     </div>
@@ -108,9 +114,14 @@
                   </div>
             </div>
             <div class="d-grid gap-2 col-4 mx-auto">
-                <button class="btn btn-primary" type="submit"
-                    [disabled]="!isAnyImageUploaded()">Save</button>
-              </div>
+                <button *ngIf="sendingData; else saveBtn" class="btn btn-primary" type="button" disabled>
+                    <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+                    <span role="status">Sending data...</span>
+                </button>
+                <ng-template #saveBtn>
+                    <button class="btn btn-primary" type="submit" [disabled]="!isAnyImageUploaded()">Save</button>
+                </ng-template>
+            </div>
         </form>
     </div>
 </ng-template>

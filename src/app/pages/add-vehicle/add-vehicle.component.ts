@@ -14,6 +14,7 @@ export class AddVehicleComponent implements OnInit {
   vehicleRequest!: FormGroup;
   vehicleResponse!: IVehicle;
   photos: any[] = new Array(5);
+  sendingData: boolean = false;
 
   constructor(private fb: FormBuilder, private vehicleService: VehicleService, private rotuer: Router) { }
 
@@ -29,23 +30,31 @@ export class AddVehicleComponent implements OnInit {
   }
 
   onFormSubmit() {
+    this.sendingData = true;
     this.vehicleService.postVehicle(this.vehicleRequest.value).subscribe({
       next: (response: any) => {
         this.vehicleResponse = response;
       },
       error: (error) => {
         console.log(error);
+      },
+      complete: () => {
+        this.sendingData = false;
       }
     })
   }
 
   onPhotosSubmit() {
+    this.sendingData = true;
     this.vehicleService.postVehiclePhotos(this.getMultiPartFile(), this.vehicleResponse.id).subscribe({
       next: () => {
-        this.rotuer.navigate(['admin']);
+        this.rotuer.navigate(['dashboard']);
       },
       error: (error) => {
         alert(error.message);     
+      },
+      complete: () => {
+        this.sendingData = false;
       }
     })
   }
