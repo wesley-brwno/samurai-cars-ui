@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { API_URL } from '../utils/utils';
 import { catchError, map } from 'rxjs';
-import { contactMessagePage } from '../model/ContactMessagePage';
+import { ContactMessage, contactMessagePage } from '../model/ContactMessagePage';
 
 @Injectable({
   providedIn: 'root'
@@ -28,4 +28,13 @@ export class MessageService {
       })
     )
   }
+
+  getMessageById(messageId: number) {
+    return this.http.get<ContactMessage>(`${API_URL}/messages/${messageId}`).pipe(
+      map((response) => response),
+      catchError((error: HttpErrorResponse) => {
+        throw new Error(error.error);
+      })
+    )
+  } 
 }
