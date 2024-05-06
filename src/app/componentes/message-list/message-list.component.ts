@@ -21,14 +21,27 @@ export class MessageListComponent implements OnInit {
 
   onSelectMessage(message: ContactMessage) {
     this.messageEmmiter.emit(message);
-    console.log(message);
-    
+    this.markMessageAsRead(parseInt(message.id));
+  }
+
+  markMessageAsRead(messageId: number) {
+    this.messageService.getMessageById(messageId).subscribe({
+      next: (response) => {
+        this.updateMessagesList(response);
+      },
+      error: (error) => {
+        console.log(error);        
+      }
+    })
+  }
+
+  updateMessagesList(updatedMessage: ContactMessage) {
+    const msgIndex = this.contactMessagePage.content.map(msg => msg.id).indexOf(updatedMessage.id);
+    this.contactMessagePage.content[msgIndex] = updatedMessage;
   }
 
   showModal() {
     const modal = document.getElementById("message-modal") as HTMLDialogElement;
     modal.showModal();
   }
-
-
 }

@@ -1,3 +1,26 @@
-<div *ngFor="let message of contactMessagePage.content ">
-    {{message.message}}
+<div class="container">
+  <table class="table table-hover table-light text-center shadow p-3 mb-5 bg-body-tertiary rounded">
+    <thead>
+      <tr>
+        <th>date</th>
+        <th>name</th>
+        <th>message</th>
+        <th colspan="2">actions</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr *ngFor="let message of contactMessagePage.content" [class.table-active]="message.is_read">
+        <td>{{ message.created_at | date }}</td>
+        <td>{{ message.name }}</td>
+        <td>{{ message.message |slice:0:50 }} <span *ngIf="message.message.length > 50"> ...</span></td>
+        <td>
+          <button class="btn btn-outline-danger">Delete</button>
+        </td>
+        <td>
+          <button class="btn btn-outline-warning" (click)="onSelectMessage(message)">Read</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
 </div>
