@@ -24,6 +24,7 @@ import { EditVehicleFormComponent } from './componentes/edit-vehicle-form/edit-v
 import { MessageListComponent } from './componentes/message-list/message-list.component';
 import { LoadingComponent } from './shared/loading/loading.component';
 import { ManageVehicleComponent } from './componentes/manage-vehicle/manage-vehicle.component';
+import { MessageModalComponent } from './componentes/message-modal/message-modal.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ManageVehicleComponent } from './componentes/manage-vehicle/manage-vehi
     EditVehicleFormComponent,
     MessageListComponent,
     LoadingComponent,
-    ManageVehicleComponent
+    ManageVehicleComponent,
+    MessageModalComponent
   ],
   imports: [
     BrowserModule,

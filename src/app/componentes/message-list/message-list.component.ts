@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ContactMessage, contactMessagePage } from 'src/app/model/ContactMessagePage';
+import { Vehicle, VehicleData } from 'src/app/model/vehiclePage';
 import { MessageService } from 'src/app/services/message.service';
 
 @Component({
@@ -9,24 +10,25 @@ import { MessageService } from 'src/app/services/message.service';
 })
 export class MessageListComponent implements OnInit {
 
-
-  contactMessagePage!: contactMessagePage;
+  @Input("messagesPage") contactMessagePage!: contactMessagePage;
+  @Output() messageEmmiter: EventEmitter<ContactMessage> = new EventEmitter<ContactMessage>();
+  vehicle!: VehicleData;
 
   constructor(private messageService: MessageService) {}
 
   ngOnInit(): void {
-    this.getMessages("?page=0&size=10");
   }
 
-  getMessages(pageable: string) {
-    this.messageService.getContactMessage(pageable).subscribe({
-      next: (response) => {
-        this.contactMessagePage = response;
-      },
-      error: (error) => {
-        console.log(error);
-      }
-    })
+  onSelectMessage(message: ContactMessage) {
+    this.messageEmmiter.emit(message);
+    console.log(message);
+    
   }
+
+  showModal() {
+    const modal = document.getElementById("message-modal") as HTMLDialogElement;
+    modal.showModal();
+  }
+
 
 }
