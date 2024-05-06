@@ -38,6 +38,8 @@
     </ng-template>
 
     <ng-template #messageList>
-        <app-message-list></app-message-list>
+        <app-message-list [messagesPage]="messagesPage" (messageEmmiter)="onSelectMessage($event)"></app-message-list>
     </ng-template>
+
+    <app-message-modal [selectedMessage]="selectedMessage" *ngIf="selectedMessage"></app-message-modal>
 </section>
