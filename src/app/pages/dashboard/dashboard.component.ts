@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
   loggedUser!: LoggedUser | null;
   messagesPage!: contactMessagePage;
   selectedMessage!: ContactMessage;
+  unReadMessage!: number;
 
   constructor(private authService: AuthService, private messagesService: MessageService) {}
   
@@ -44,5 +45,10 @@ export class DashboardComponent implements OnInit {
   showMessageModal() {
     const modal = document.getElementById("message-modal") as HTMLDialogElement;
     modal.showModal();
+  }
+
+  getNumberOfUnreadMessages(): number {
+    const unReadMessage = this.messagesPage.content.filter(msg => !msg.is_read);
+    return unReadMessage.length;
   }
 }
