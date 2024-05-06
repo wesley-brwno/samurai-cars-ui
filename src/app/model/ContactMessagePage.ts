@@ -10,7 +10,7 @@ export interface ContactMessage {
     created_at: string,
     is_read: boolean,
     name: string,
-    lastname: string,
+    lastName: string,
     phone: string,
     email: string,
     message: string
