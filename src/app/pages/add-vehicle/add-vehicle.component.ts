@@ -74,7 +74,7 @@ export class AddVehicleComponent implements OnInit {
   }
 
   onCancelClick() {
-    this.rotuer.navigate(['admin']);
+    this.rotuer.navigate(['dashboard']);
   }
 
   onPhotoAdded(event: any, index: number) {
