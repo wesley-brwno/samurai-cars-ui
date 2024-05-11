@@ -9,6 +9,7 @@ import { VehicleService } from 'src/app/services/vehicle.service';
   styleUrls: ['./message-modal.component.css']
 })
 export class MessageModalComponent implements OnChanges{
+
   @Input() selectedMessage!: ContactMessage;
   vehicle!: VehicleData;
 
@@ -45,5 +46,19 @@ export class MessageModalComponent implements OnChanges{
   closeModal() {
     const modal = document.getElementById("message-modal") as HTMLDialogElement;
     modal.close();
+  }
+
+  closeModalByBackdropClick(event: MouseEvent) {
+    const modal = document.getElementById("message-modal") as HTMLDialogElement;
+    const dialogDimensions = modal.getBoundingClientRect();
+
+    if (
+      event.clientX < dialogDimensions.left ||
+      event.clientX > dialogDimensions.right ||
+      event.clientY < dialogDimensions.top ||
+      event.clientY > dialogDimensions.bottom
+    ) {
+      modal.close()
+    }
   }
 }

@@ -1,4 +1,4 @@
-<dialog id="message-modal">
+<dialog id="message-modal" (click)="closeModalByBackdropClick($event)">
     <div>
         <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
         <div class="card mb-3" *ngIf="vehicle">
