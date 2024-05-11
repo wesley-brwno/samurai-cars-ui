@@ -22,9 +22,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.pageable = "all?page=0&sort=createdAt,desc";
     this.getVehicles();
-    this.getBrands();
-    this.getYears();
-    this.getSellers();
   }
 
   getVehicles() {
@@ -39,6 +36,9 @@ export class HomeComponent implements OnInit {
       },
       complete: () => {
         this.loadingData = false;
+        this.getBrands();
+        this.getYears();
+        this.getSellers();
       }
     })
   }
