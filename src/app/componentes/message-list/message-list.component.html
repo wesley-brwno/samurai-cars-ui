@@ -14,7 +14,7 @@
         <td>{{ message.name }}</td>
         <td>{{ message.message |slice:0:50 }} <span *ngIf="message.message.length > 50"> ...</span></td>
         <td>
-          <button class="btn btn-outline-danger">Delete</button>
+          <button class="btn btn-outline-danger" (click)="onDeleteMessage(message)">Delete</button>
         </td>
         <td>
           <button class="btn btn-outline-warning" (click)="onSelectMessage(message)">Read</button>
@@ -22,5 +22,21 @@
       </tr>
     </tbody>
   </table>
-
 </div>
+
+<dialog id="delete-modal">
+  <div class="card delete-modal">
+    <div class="card-header d-flex justify-content-end">
+      <button type="button" class="btn-close" aria-label="Close" (click)="closeDelteModal()"></button>
+    </div>
+    <div class="card-body fs-5">
+      Are you sure you want to delete {{ "exemple"}} message? You won't be able to undo this! 
+    </div>
+    <div class="card-footer">
+      <div class="d-flex flex-wrap gap-3">
+        <button class="btn btn-danger flex-fill shadow-sm" type="button" (click)="closeDelteModal()">Cancel</button>
+        <button class="btn btn-success flex-fill shadow-sm" type="button">Confirm</button>
+      </div>
+    </div>
+  </div>
+</dialog>

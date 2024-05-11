@@ -24,6 +24,11 @@ export class MessageListComponent implements OnInit {
     this.markMessageAsRead(parseInt(message.id));
   }
 
+  onDeleteMessage(message: ContactMessage) {
+    const modal = document.getElementById("delete-modal") as HTMLDialogElement;
+    modal.showModal();
+  }
+
   markMessageAsRead(messageId: number) {
     this.messageService.getMessageById(messageId).subscribe({
       next: (response) => {
@@ -43,5 +48,10 @@ export class MessageListComponent implements OnInit {
   showModal() {
     const modal = document.getElementById("message-modal") as HTMLDialogElement;
     modal.showModal();
+  }
+
+  closeDelteModal() {    
+    const modal = document.getElementById("delete-modal") as HTMLDialogElement;    
+    modal.close();
   }
 }
