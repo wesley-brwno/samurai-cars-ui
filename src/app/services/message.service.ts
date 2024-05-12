@@ -20,6 +20,15 @@ export class MessageService {
     )
   }
 
+  deleteMessage(messageId: string) {
+    return this.http.delete(`${API_URL}/messages/${messageId}`).pipe(
+      map(response => response),
+      catchError((error: HttpErrorResponse) => {
+        throw new Error(error.error);
+      })
+    )
+  }
+
   getContactMessage(pageable: string) {
     return this.http.get<contactMessagePage>(`${API_URL}/messages${pageable}`).pipe(
       map((response) => response),
