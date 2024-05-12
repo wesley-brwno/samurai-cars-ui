@@ -6,7 +6,7 @@
 }
 
 .delete-modal {
-    background-color: #74EBD5;
-    background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
     border: black solid 1px;
+    background-image    : linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
