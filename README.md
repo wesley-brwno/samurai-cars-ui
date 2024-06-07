@@ -14,6 +14,7 @@ Você pode acessar o deploy pelo seguinte link <a target="blank" href="https://s
 - Bootstrap 5
 - HTML e CSS
 - Flexbox
+- SPA (Aplicação de página única)
 - Programação Orientada a Objetos
 - Integração do Backend com Frontend
 - Autenticação e Autorização
