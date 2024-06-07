@@ -1,27 +1,50 @@
 # SamuraiCarsUi
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.10.
+Interface Gráfica implementada em Angular para a REST API [Samurai's Cars](https://github.com/wesley-brwno/samurai-cars).
 
-## Development server
+## Como Executar
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Você pode acessar o deploy pelo seguinte link <a target="blank" href="https://samurais-cars.vercel.app/">https://samurais-cars.vercel.app/</a>.
 
-## Code scaffolding
+## Práticas Adotadas
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular 15
+- TypeScript
+- RxJS
+- Bootstrap 5
+- HTML e CSS
+- Flexbox
+- Programação Orientada a Objetos
+- Integração do Backend com Frontend
+- Autenticação e Autorização
+- JWT
 
-## Build
+## Páginas
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+  <figure>
+      <img src="https://github.com/wesley-brwno/samurai-cars-ui/assets/84514966/d7889177-7abb-4f93-9c9d-015e8432d406" style="width:80%">
+      <figcaption>Fig.1 - Landing Page</figcaption>
+  </figure>
+  
+  <figure>
+      <img src="https://github.com/wesley-brwno/samurai-cars-ui/assets/84514966/76efdb26-8d5e-4263-827e-8c06fec799b2" style="width:80%">
+      <figcaption>Fig.2 - Home</figcaption>
+  </figure>
+    
+  <figure>
+      <img src="https://github.com/wesley-brwno/samurai-cars-ui/assets/84514966/09b4a6cd-9ccf-412d-b2a2-76c08098eaf3" style="width:80%">
+      <figcaption>Fig.3 - Detalhes do veículo</figcaption>
+  </figure>
 
-## Running unit tests
+  <figure>
+      <img src="https://github.com/wesley-brwno/samurai-cars-ui/assets/84514966/9ab8e15b-ea05-40bd-ab49-85fdbb7b5dbf" style="width:80%">
+      <figcaption>Fig.4 - Dashboard</figcaption>
+  </figure>
+  
+  <figure>
+      <img src="https://github.com/wesley-brwno/samurai-cars-ui/assets/84514966/3c817acf-da9c-4b13-a507-759c8bb5fddf" style="width:80%">
+      <figcaption>Fig.5 - Log in / Sing up</figcaption>
+  </figure>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
