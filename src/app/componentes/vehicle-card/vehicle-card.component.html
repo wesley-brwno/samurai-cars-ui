@@ -14,7 +14,7 @@
           <td> {{content.vehicle.model}}</td>
           <td> {{content.vehicle.year}}</td>
           <td> {{content.vehicle.created_at | date}}</td>
-          <td> {{content.vehicle.created_at | date: 'yyyy'}}</td>
+          <td> {{content.vehicle.created_at | date: 'yyyy'}}</td> <!-- to be displayed in mobile-->
         </tbody>
         <tfoot>
           <td colspan="3" class="price">{{content.vehicle.price | currency:'BRL':true}}</td>
