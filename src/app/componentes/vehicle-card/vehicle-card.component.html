@@ -1,5 +1,5 @@
 <div class="cards_container">
-  <div class="card" style="width: 18rem;" *ngFor="let content of vehicleData">
+  <div class="card" *ngFor="let content of vehicleData">
     <img [src]="content.pictures[0]" [alt]="content.vehicle.name" class="card-img-top thumbnail">
     <div class="card-body">
       <h5 class="card-title">{{ content.vehicle.name }}</h5>
@@ -14,6 +14,7 @@
           <td> {{content.vehicle.model}}</td>
           <td> {{content.vehicle.year}}</td>
           <td> {{content.vehicle.created_at | date}}</td>
+          <td> {{content.vehicle.created_at | date: 'yyyy'}}</td>
         </tbody>
         <tfoot>
           <td colspan="3" class="price">{{content.vehicle.price | currency:'BRL':true}}</td>
